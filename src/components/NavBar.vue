@@ -47,7 +47,7 @@
       <v-img
   max-height="150"
   max-width="250"
-  src="https://scontent-frx5-1.xx.fbcdn.net/v/t39.30808-6/273461304_1142771459594561_8758031214528341052_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=n7nR6L9tE7sAX-n_qdX&_nc_ht=scontent-frx5-1.xx&oh=00_AT9rJ7EVicIFHBHhz85ZNurAYowOlFdkwJqLXrcTz5T4Ag&oe=6314D857"
+  src="https://scontent-lax3-2.xx.fbcdn.net/v/t39.30808-6/273461304_1142771459594561_8758031214528341052_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=FZwUquMzRusAX-ypckR&_nc_ht=scontent-lax3-2.xx&oh=00_AT8znnh78J8xJ7vODl36vUixlB-tbDkOKtbw4YBIvV3cPw&oe=631CC157"
 ></v-img>
 
        <v-list-item
