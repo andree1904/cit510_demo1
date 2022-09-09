@@ -127,7 +127,7 @@
               question.answers[i],
             ];
           }
-          //add right answers and key
+          //add right answers and keys
           question.rightAnswer = null;
           question.key = index;
           index++;
