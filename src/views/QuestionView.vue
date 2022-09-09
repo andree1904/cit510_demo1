@@ -8,15 +8,16 @@
      elevation="24"
  >
   <v-card-title> Questions </v-card-title>
-   <v-list-item 
-   v-for="question in questions"
-   :key="question.id">
-            <v-list-item-title class="mt-1 font-weight-bold"> {{ unescapeHtml(question.question) }} </v-list-item-title>
-           
-            <v-list-item>{{question.correct_answer}}</v-list-item>
-
-            
-</v-list-item>
+  <h1>Quiz App About Music</h1>
+    <quiz @quiz-completed="handleQuizCompleted" :key="quizKey" />
+    <custom-modal
+      v-show="showModal"
+      header="Congratulations!"
+      subheader="You've completed your Quiz!"
+      :score="score"
+      @reload="updateQuiz"
+      @close="showModal = false"
+    />
 
 <v-btn @click="getQuestions"
 class="ma-3"
@@ -29,33 +30,34 @@ class="ma-3"
 </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import axios from 'axios';
-import { decode } from 'html-entities';
-
-
-
-
-const questions = ref([])
-
-async function getQuestions() {
-    axios.get('https://opentdb.com/api.php?amount=10').then( response => {
-        questions.value=(response.data.results)
-        
-        
-    })
-   
-}
-function unescapeHtml(str) {
-        return str
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "\"")
-        .replace(/&#039;/g, "\'")
-        ;
-}
+<script>
+import CustomModal from "../components/CustomModal.vue";
+import Quiz from "../components/Quiz.vue";
+export default {
+  components: { Quiz, CustomModal },
+  name: "App",
+  data() {
+    return {
+      quizKey: 0,
+      showModal: false,
+      score: {
+        allQuestions: 0,
+        answeredQuestions: 0,
+        correctlyAnsweredQuestions: 0,
+      },
+    };
+  },
+  methods: {
+    handleQuizCompleted(score) {
+      this.score = score;
+      this.showModal = true;
+    },
+    updateQuiz() {
+      this.showModal = false;
+      this.quizKey++;
+    },
+  },
+};
 </script>
 
 <style>
