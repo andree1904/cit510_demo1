@@ -1,10 +1,29 @@
 <template>
- <div>
+ 
   <div>
-     <h1 align="center">
+    <v-card
+    class="mx-auto"
+    max-width="1500px"
+    style="background: linear-gradient(90deg, rgba(127,188,210,1) 0%, rgba(165,241,233,1) 13%, rgba(225,255,238,1) 97%);"
+    
+  >
+  <v-card-title>
+    <h1 align="center" class="font-italic">Welcome</h1>
+  </v-card-title>
+    <v-card-text>
+     <p align="center">Hello everyone this website is all about my compilation on the laboratories in Integrative programming and Technologies 2. Wherein in there are 7 sections of the website. First is the dashboard, Next is a simple calculator, Next is String manipulatior, Next is About me section, Next is the research work on what is vuetify, and last is the Quiz app about music.</p>
+    </v-card-text>
+ 
+ 
+
+  
+   
+
+  
+     <h1 align="center" class="font-italic">
     Gallery
  </h1>
-  </div>
+  
   <v-carousel hide-delimiters>
    
     <v-carousel-item
@@ -13,8 +32,9 @@
       :src="item.src"
     ></v-carousel-item>
   </v-carousel>
- </div>
- 
+</v-card>
+  </div>
+
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -35,3 +55,19 @@ const items = ref([
 ])
  
 </script>
+
+<style scoped>
+  .finedTitle {
+    font-weight: 900;
+    text-shadow: 2px 2px #000000;
+  }
+  
+  .social-icon {
+    font-size: 21px;
+    color: white;
+  }
+  .elevation-0 {
+    background: rgb(127,188,210);
+background: linear-gradient(90deg, rgba(127,188,210,1) 0%, rgba(165,241,233,1) 13%, rgba(225,255,238,1) 97%);
+  }
+  </style>

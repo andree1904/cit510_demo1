@@ -1,54 +1,59 @@
 <template>
-    <transition name="modal">
+ 
+    <div name="modal"  transition="scale-transition" >
       <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-header">
-              <h2>{{ header }}</h2>
-              <h3>{{ subheader }}</h3>
+              <h2 class="font-italic">{{ header }}</h2>
+              <h3 class="font-italic">{{ subheader }}</h3>
             </div>
   
             <div class="modal-body">
-              <div id="score">
-                You answered
-                <span class="highlight">
+              <v-card id="score"
+              elevation="24"
+              >
+                <span class="font-italic">You answered </span>
+                <span class="highlight font-italic ">
                   {{
                     Math.floor(
                       (score.correctlyAnsweredQuestions / score.allQuestions) *
                         100
                     )
                   }}
-                  % correctly!
+                  <span class="font-italic">% correclty </span>
                 </span>
-                Answered
-                <span class="highlight">
+                <span class="font-italic"> Answered </span>
+                <span class="highlight font-italic">
                   {{ score.correctlyAnsweredQuestions }} out of
                   {{ score.allQuestions }}
                 </span>
-                questions.
-              </div>
+               <span class="font-italic"> questions. </span>
+              </v-card>
             </div>
   
             <div class="modal-footer">
-              <button
+              <v-btn
                 id="play-again"
                 class="button-footer"
+                x large
                 @click="$emit('reload')"
               >
-                Play Again
-              </button>
-              <button
+              <v-icon>mdi-play</v-icon>
+              </v-btn>
+              <v-btn
                 id="close-button"
                 class="button-footer"
                 @click="$emit('close')"
               >
-                Close
-              </button>
+              <v-icon>mdi-close</v-icon>
+              </v-btn>
             </div>
           </div>
         </div>
       </div>
-    </transition>
+    </div>
+ 
   </template>
   
   <script>
@@ -82,7 +87,7 @@
     max-width: 650px;
     margin: 0px auto;
     padding: 20px 30px;
-    background-color: #fff;
+    background:linear-gradient(90deg, rgba(107,191,102,1) 0%, rgba(0,255,110,1) 13%, rgba(234,246,234,0.9868989832261029) 97%);
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
@@ -91,10 +96,10 @@
     text-align: center;
   }
   .modal-header h2 {
-    color: rgb(0, 178, 72);
+    color: #1B2430;
   }
   .modal-header h3 {
-    color: rgb(0, 178, 72);
+    color: #1B2430;
   }
   .modal-body {
     display: flex;
@@ -125,13 +130,9 @@
     transform: scale(1.1);
   }
   .button-footer {
-    padding: 1rem 2rem;
-    background: linear-gradient(
-      210deg,
-      rgba(187, 0, 47, 0.8),
-      rgba(245, 0, 87, 0.6)
-    );
-    border-radius: 7px;
+    padding: 5px 10px;
+    background: linear-gradient(90deg, rgba(38,126,109,1) 11%, rgba(47,158,104,1) 65%, rgba(88,179,134,1) 95%);
+    
     border: none;
   }
   .anchor-footer {
@@ -152,7 +153,7 @@
     padding: 0.25rem 0.5rem;
   }
   #score {
-    background-color: rgb(210, 200, 200);
+    background-color: #C3F8FF;
     border-radius: 5px;
     box-shadow: 2px 3px 9px gray;
   }

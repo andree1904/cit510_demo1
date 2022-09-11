@@ -1,24 +1,21 @@
 <template>
     <div class="container">
       <div class="correctAnswers">
-        You have
-        <strong>{{ correctAnswers }} correct {{ pluralizeAnswer }}!</strong>
-      </div>
-      <div class="correctAnswers">
         Currently at question {{ index + 1 }} of {{ questions.length }}
       </div>
   
-      <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <h2 v-html="loading ? 'Loading...' : currentQuestion.question"></h2>
       <!-- Only first question is displayed -->
-      <form v-if="currentQuestion">
-        <button
+      <v-form v-if="currentQuestion" class="form">
+        <v-btn
           v-for="answer in currentQuestion.answers"
           :index="currentQuestion.key"
           :key="answer"
           v-html="answer"
           @click.prevent="handleClick"
-        ></button>
-      </form>
+          class="button"
+        ></v-btn>
+      </v-form>
     </div>
   </template>
   
@@ -193,25 +190,24 @@
   <style scoped>
   .container {
     margin: 1rem auto;
-    padding: 1rem;
-    max-width: 750px;
+  padding: 4.5rem;
+    max-width: 900px;
+   
   }
-  form {
+  #form {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
   }
-  button {
+  #button {
     font-size: 1.1rem;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 2rem;
     margin: 0.5rem;
     width: 40%;
     background-color: rgba(100, 100, 100, 0.3);
     border: none;
     border-radius: 0.4rem;
-    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
   }
   button:hover:enabled {
     transform: scale(1.02);
@@ -249,19 +245,11 @@
     animation-iteration-count: 3;
     animation-timing-function: ease-in-out;
     color: black;
-    background: linear-gradient(
-      210deg,
-      rgba(0, 178, 72, 0.25),
-      rgba(0, 178, 72, 0.5)
-    );
+    background: linear-gradient(90deg, rgba(38,126,109,1) 11%, rgba(47,158,104,1) 65%, rgba(88,179,134,1) 95%);
   }
   button.wrongAnswer {
     color: black;
-    background: linear-gradient(
-      210deg,
-      rgba(245, 0, 87, 0.25),
-      rgba(245, 0, 87, 0.5)
-    );
+background: linear-gradient(90deg, rgba(194,16,16,1) 0%, rgba(230,72,72,1) 53%, rgba(214,28,78,1) 62%);
   }
   button.showRightAnswer {
     animation: flashButton;
@@ -270,11 +258,7 @@
     animation-iteration-count: 2;
     animation-timing-function: ease-in-out;
     color: black;
-    background: linear-gradient(
-      210deg,
-      rgba(0, 178, 72, 0.25),
-      rgba(0, 178, 72, 0.5)
-    );
+    background: linear-gradient(90deg, rgba(38,126,109,1) 11%, rgba(47,158,104,1) 65%, rgba(88,179,134,1) 95%);
   }
   </style>
   

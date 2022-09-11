@@ -5,6 +5,7 @@ import HomeView from '../views/DashboardView.vue'
 import AboutView from '../views/AboutView.vue'
 import VuetifyView from '../views/VuetifyView.vue'
 import QuestionView from '../views/QuestionView.vue'
+import DescriptionView from '../views/DescriptionView.vue'
 
 
 const router = createRouter({
@@ -39,6 +40,11 @@ const router = createRouter({
             path: '/questions',
             name: 'Questions',
             component: QuestionView
+        },
+        {
+            path: '/description',
+            name: 'Description',
+            component: DescriptionView
         }
 
 

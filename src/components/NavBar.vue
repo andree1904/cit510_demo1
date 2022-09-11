@@ -2,28 +2,34 @@
 
   <nav>
     
-      <v-toolbar app color="primary">
+      <v-toolbar app color="#D3DEDC"
+       src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+      >
        <v-app-bar-nav-icon @click='toggleDrawer'></v-app-bar-nav-icon>
       <v-toolbar-title >
-        <span class="font-weight-light">Midterm Laboratory</span>
-        <span> 1</span>
+        <span class="white--text">Midterm Project</span>
+      
       </v-toolbar-title>
       <v-spacer></v-spacer>
-
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+     <v-img
+    
+  max-height="100"
+  max-width="250"
+  src="https://i.postimg.cc/1XJK8wQD/T-I-P-Logo.png">
+      
+     </v-img>
+  
+   
+   
       <!-- dropdown menu -->
     <v-menu
       open-on-hover
     >
-      <template v-slot:activator="{ props }">
-        
-        <v-btn
-          color="primary"
-          v-bind="props"
-        >
-          Dropdown
-        </v-btn>
-      </template>
-      
+     
       <v-list>
         
         <v-list-item
@@ -42,13 +48,28 @@
       
       </v-toolbar>
       
-     <v-navigation-drawer app v-model="drawer" id="app" >
-     
-      <v-img
-  max-height="150"
-  max-width="250"
-  src="https://scontent-lax3-2.xx.fbcdn.net/v/t39.30808-6/273461304_1142771459594561_8758031214528341052_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=FZwUquMzRusAX-ypckR&_nc_ht=scontent-lax3-2.xx&oh=00_AT8znnh78J8xJ7vODl36vUixlB-tbDkOKtbw4YBIvV3cPw&oe=631CC157"
-></v-img>
+     <v-navigation-drawer app v-model="drawer" id="app" 
+      >
+      <v-list>
+          <v-list-item class="px-2">
+            <v-list-item-avatar>
+              <v-img src="https://i.postimg.cc/cJMqD1G6/273461304-1142771459594561-8758031214528341052-n.jpg"
+              height="100px"
+              ></v-img>
+            </v-list-item-avatar>
+          </v-list-item>
+
+          <v-list-item link>
+            <v-list-item-content>
+              <v-list-item-title class="text-h6 text-md-center">
+                Andre S. Losito
+              </v-list-item-title>
+              <v-list-item-subtitle class="text-md-center">maslosito@tip.edu.ph</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+
+        <v-divider></v-divider>
 
        <v-list-item
           v-for="item in items"
@@ -60,8 +81,10 @@
         </v-list-item>
       
      </v-navigation-drawer>
-  </nav>
 
+     
+  </nav>
+ 
 </template>
 
 <script setup>
@@ -73,9 +96,10 @@
            { title: 'Dashboard', icon: 'mdi-view-dashboard-variant', path: '/' },
            { title: 'Math', icon: 'mdi-plus-minus-variant', path: '/basicMath' },
            { title: 'String manipulator', icon: 'mdi-wordpress', path: '/stringApp'},
+           { title: 'Quiz', icon: 'mdi-feather', path: '/questions' },
             { title: 'About Me', icon: 'mdi-account', path: '/about' },
               { title: 'Vuetify', icon: 'mdi-information-variant', path: '/vuetify' },
-              { title: 'Questions', icon: 'mdi-help', path: '/questions' },
+              { title: 'Descripton', icon: 'mdi-apps', path: '/description' },
         ])
 
  function toggleDrawer(){

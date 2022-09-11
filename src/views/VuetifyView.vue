@@ -12,7 +12,7 @@
       Vuetify
     </v-card-title>
     <v-img
-     src="https://cdn.worldvectorlogo.com/logos/vuetify.svg"
+     src="https://i.postimg.cc/HsRCnPtW/22138497.png"
       height="200px"
     ></v-img>
 
