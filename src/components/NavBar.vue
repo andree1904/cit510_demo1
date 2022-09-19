@@ -2,8 +2,7 @@
 
   <nav>
     
-      <v-toolbar app color="#D3DEDC"
-       src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+      <v-toolbar app class="transparent"
       >
        <v-app-bar-nav-icon @click='toggleDrawer'></v-app-bar-nav-icon>
       <v-toolbar-title >
@@ -132,5 +131,10 @@
 #app {
   background: rgb(127,188,210);
 background: linear-gradient(90deg, rgba(127,188,210,1) 0%, rgba(165,241,233,1) 13%, rgba(225,255,238,1) 97%);
+}
+.transparent {
+  background-color: transparent!important;
+  border-color: transparent!important;
+  
 }
 </style>

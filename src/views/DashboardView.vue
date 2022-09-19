@@ -2,9 +2,8 @@
  
   <div>
     <v-card
-    class="mx-auto"
+    class="mx-auto transparent"
     max-width="1500px"
-    style="background: linear-gradient(90deg, rgba(127,188,210,1) 0%, rgba(165,241,233,1) 13%, rgba(225,255,238,1) 97%);"
     
   >
   <v-card-title>
@@ -70,4 +69,11 @@ const items = ref([
     background: rgb(127,188,210);
 background: linear-gradient(90deg, rgba(127,188,210,1) 0%, rgba(165,241,233,1) 13%, rgba(225,255,238,1) 97%);
   }
+  .transparent{
+  
+  background-color: transparent!important;
+  border-color: transparent!important;
+  
+}
+  
   </style>
