@@ -46,13 +46,25 @@
 
 <script setup>
 import {ref} from 'vue'
+import firebase from 'firebase/compat';
+import { onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 
 const word = ref('')
 const vowelcount = ref(0)
 const count =ref(0)
 const consonantcount = ref(0)
 const vowelconvert = ref(0)
-
+const router = useRouter()
+const authlistener = firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        alert('you must login first')
+        router.push('/')
+    }
+  })
+  onBeforeMount(() => {
+    authlistener()
+})  
 function Results () {
     
      vowelcount.value = word.value.match(/[aeiou]/gi).length;

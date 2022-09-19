@@ -29,7 +29,29 @@
 <script>
 import CustomModal from "../components/CustomModal.vue";
 import Quiz from "../components/Quiz.vue";
+import firebase from "firebase/compat";
+import { onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
+
+
 export default {
+  
+setup() {
+  const authlistener = () => {
+      const router = useRouter()
+      firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        alert('you must login first')
+        router.push('/')
+    }
+  })
+  
+  }
+
+onBeforeMount(() => {
+  authlistener()
+})
+},
   components: { Quiz, CustomModal },
   name: "App",
   data() {
@@ -40,19 +62,31 @@ export default {
         allQuestions: 0,
         answeredQuestions: 0,
         correctlyAnsweredQuestions: 0,
+       
+        
+        
       },
     };
   },
+  
   methods: {
     handleQuizCompleted(score) {
+      
       this.score = score;
       this.showModal = true;
+      firebase.firestore().collection("scores").add(
+        email,
+          this.score,
+        ).then(() =>{
+          alert("score added");
+        })
+     
     },
     updateQuiz() {
       this.showModal = false;
       this.quizKey++;
     },
-  },
+}
 };
 </script>
 

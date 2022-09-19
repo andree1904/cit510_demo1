@@ -33,7 +33,20 @@
 
 <script setup>
   import { ref } from 'vue';
+  import firebase from 'firebase/compat';
+import { onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
+const authlistener = firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        alert('you must login first')
+        router.push('/')
+    }
+  })
+  onBeforeMount(() => {
+    authlistener()
+})  
      const items = ref([
         {
           color: '#ABD9FF',

@@ -59,9 +59,21 @@
 
 <script setup >
 import {ref} from 'vue'
+import firebase from 'firebase/compat';
+import { onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 
 const show = ref(false)
-
+const router = useRouter()
+const authlistener = firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        alert('you must login first')
+        router.push('/')
+    }
+  })
+  onBeforeMount(() => {
+    authlistener()
+})  
 
 </script>
 

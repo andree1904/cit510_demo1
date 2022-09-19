@@ -39,11 +39,14 @@
   </v-card>
 </v-container>
 </div>
+
  </template>
 
 <script setup>
   import {ref} from 'vue'
-
+import firebase from 'firebase/compat';
+import { onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
   const fNumber=ref(0)
   const sNumber=ref(0)
   const sum=ref(0)
@@ -51,7 +54,17 @@
   const mul=ref(0)
   const divi=ref(0)
   const ave=ref(0)
+  const router = useRouter()
 
+  const authlistener = firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+        alert('you must login first')
+        router.push('/')
+    }
+  })
+  onBeforeMount(() => {
+    authlistener()
+})  
   function doSum(){
     sum.value = fNumber.value + sNumber.value
     return sum.value
@@ -75,6 +88,8 @@
     ave.value = (fNumber.value + sNumber.value) / 2
     return ave.value
   }
+
+
 </script>
 
 

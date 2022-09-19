@@ -15,13 +15,19 @@
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
-     <v-img
-    
-  max-height="100"
-  max-width="250"
-  src="https://i.postimg.cc/1XJK8wQD/T-I-P-Logo.png">
+
       
-     </v-img>
+      <span v-if="currentUser">
+        <v-btn @click="signOut" icon>
+        <v-icon >mdi-exit-run</v-icon>
+      </v-btn>
+    </span>
+    <span v-else>
+      <v-btn :to="{name: 'login'}" icon>
+        <v-icon >mdi-login-variant</v-icon>
+      </v-btn>
+    </span>
+ 
   
    
    
@@ -89,9 +95,10 @@
 
 <script setup>
   import { ref } from 'vue'
-    
+  import firebase from 'firebase/compat';
+  
   const drawer = ref(false)
-
+  const currentUser = ref(true)
   const  items =  ref([
            { title: 'Dashboard', icon: 'mdi-view-dashboard-variant', path: '/' },
            { title: 'Math', icon: 'mdi-plus-minus-variant', path: '/basicMath' },
@@ -107,6 +114,18 @@
  }
 
  
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            currentUser.value = true
+        } else {
+            currentUser.value = false
+        }
+    })
+    const signOut = () => {
+        firebase.auth().signOut()
+        alert('successfully log out')
+        router.push('/')
+    }
 </script>
 <style>
 #app {
