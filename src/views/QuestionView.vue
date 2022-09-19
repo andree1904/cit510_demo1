@@ -32,6 +32,7 @@ import Quiz from "../components/Quiz.vue";
 import firebase from "firebase/compat";
 import { onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router';
+import Swal from "sweetalert2";
 
 
 export default {
@@ -41,7 +42,11 @@ setup() {
       const router = useRouter()
       firebase.auth().onAuthStateChanged(function(user) {
     if (!user) {
-        alert('you must login first')
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'You need to Log in to view this page'
+})
         router.push('/')
     }
   })

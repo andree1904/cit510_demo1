@@ -47,6 +47,8 @@
 import firebase from 'firebase/compat';
 import { onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router';
+import Swal from 'sweetalert2';
+
   const fNumber=ref(0)
   const sNumber=ref(0)
   const sum=ref(0)
@@ -58,7 +60,11 @@ import { useRouter } from 'vue-router';
 
   const authlistener = firebase.auth().onAuthStateChanged(function(user) {
     if (!user) {
-        alert('you must login first')
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'You need to Log in to view this page'
+})
         router.push('/')
     }
   })

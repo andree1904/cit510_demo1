@@ -4,6 +4,9 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import firebase from 'firebase/compat/app'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDKExrvMhVOSkvbcTFAw22wIo_KSeok6lw",
@@ -26,4 +29,5 @@ loadFonts()
 createApp(App)
     .use(router)
     .use(vuetify)
+    .use(VueSweetalert2)
     .mount('#app')

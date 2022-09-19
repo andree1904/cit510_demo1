@@ -8,7 +8,7 @@
   elevation="24"
  
 >
-  <v-card-title>Login Admin Account</v-card-title>
+  <v-card-title>Login User Account</v-card-title>
   <div class="form-group">
        <v-label>Email</v-label>
        <v-text-field label="Enter Email Address" type="email" v-model="email"></v-text-field>
@@ -30,6 +30,7 @@
    import { ref } from 'vue';
    import { useRouter } from 'vue-router';
    import firebase from 'firebase/compat';
+   import Swal from 'sweetalert2';
 
 
    const email = ref('')
@@ -39,7 +40,7 @@ const signIn = () => {
 
    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
    .then((data) => {
-       alert('successfully login')
+    Swal.fire('Good job!', 'Successfully User Log In','success');
        router.push('/')
    })
    .catch(error => {

@@ -96,6 +96,7 @@
 <script setup>
   import { ref } from 'vue'
   import firebase from 'firebase/compat';
+  import Swal from 'sweetalert2';
   
   const drawer = ref(false)
   const currentUser = ref(true)
@@ -123,7 +124,7 @@
     })
     const signOut = () => {
         firebase.auth().signOut()
-        alert('successfully log out')
+        Swal.fire('Good job!', 'Successfully Admin Log Out','success');
         router.push('/')
     }
 </script>
