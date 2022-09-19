@@ -11,9 +11,7 @@
         class="d-flex align-center justify-center"
       >
         &copy; 2022 andre S. Losito
-      </v-card>
-   
-   
+</v-card>
     </v-footer>
          
 </template>
