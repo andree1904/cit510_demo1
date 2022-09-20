@@ -80,7 +80,6 @@ onBeforeMount(() => {
       this.score = score;
       this.showModal = true;
       firebase.firestore().collection("scores").add(
-        email,
           this.score,
         ).then(() =>{
           alert("score added");
