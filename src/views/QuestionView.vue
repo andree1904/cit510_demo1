@@ -82,7 +82,7 @@ onBeforeMount(() => {
       firebase.firestore().collection("scores").add(
           this.score,
         ).then(() =>{
-          alert("score added");
+          Swal.fire('Good job!', 'Score is added to the admin database','success');
         })
      
     },
